@@ -7,17 +7,44 @@ var reactCircleCard74EE668E374F4FD99ED6BAF16A673B9D_DEBUG;
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "E": () => (/* binding */ initialState),
+/* harmony export */   "G": () => (/* binding */ ReactCircleCard)
 /* harmony export */ });
-/* unused harmony export ReactCircleCard */
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(294);
 
+const initialState = {
+    textLabel: "",
+    textValue: "",
+};
 class ReactCircleCard extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+    constructor(props) {
+        super(props);
+        this.state = initialState;
+        this.state = initialState;
+    }
+    static update(newState) {
+        if (typeof ReactCircleCard.updateCallback === "function") {
+            ReactCircleCard.updateCallback(newState);
+        }
+    }
+    componentWillMount() {
+        ReactCircleCard.updateCallback = (newState) => {
+            this.setState(newState);
+        };
+    }
+    componentWillUnmount() {
+        ReactCircleCard.updateCallback = null;
+    }
     render() {
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "circleCard" }, "Hello, React!");
+        const { textLabel, textValue } = this.state;
+        return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "circleCard" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null,
+                textLabel,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("em", null, textValue))));
     }
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReactCircleCard);
+ReactCircleCard.updateCallback = null;
 
 
 /***/ }),
@@ -39,11 +66,25 @@ class ReactCircleCard extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
 
 class Visual {
     constructor(options) {
-        this.reactRoot = react__WEBPACK_IMPORTED_MODULE_0__.createElement(_component__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {});
+        this.reactRoot = react__WEBPACK_IMPORTED_MODULE_0__.createElement(_component__WEBPACK_IMPORTED_MODULE_2__/* .ReactCircleCard */ .G, {});
         this.target = options.element;
         react_dom__WEBPACK_IMPORTED_MODULE_1__.render(this.reactRoot, this.target);
     }
-    update(options) { }
+    update(options) {
+        if (options.dataViews && options.dataViews[0]) {
+            const dataView = options.dataViews[0];
+            _component__WEBPACK_IMPORTED_MODULE_2__/* .ReactCircleCard.update */ .G.update({
+                textLabel: dataView.metadata.columns[0].displayName,
+                textValue: dataView.single.value.toString(),
+            });
+        }
+        else {
+            this.clear();
+        }
+    }
+    clear() {
+        _component__WEBPACK_IMPORTED_MODULE_2__/* .ReactCircleCard.update */ .G.update(_component__WEBPACK_IMPORTED_MODULE_2__/* .initialState */ .E);
+    }
 }
 
 
