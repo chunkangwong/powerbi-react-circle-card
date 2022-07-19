@@ -13,7 +13,7 @@ import { VisualSettings } from "./settings";
 // Import React dependencies and the added component
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { ReactCircleCard, initialState } from "./component";
+import ReactCircleCard, { initialState } from "./component";
 import "./../style/visual.less";
 import IViewport = powerbi.IViewport;
 
@@ -21,7 +21,7 @@ export class Visual implements IVisual {
   private target: HTMLElement;
   private viewport: IViewport;
   private settings: VisualSettings;
-  private reactRoot: React.ComponentElement<any, any>;
+  private reactRoot: JSX.Element;
   constructor(options: VisualConstructorOptions) {
     this.reactRoot = React.createElement(ReactCircleCard, {});
     this.target = options.element;
