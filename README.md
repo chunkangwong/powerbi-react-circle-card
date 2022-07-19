@@ -1,5 +1,7 @@
 # Power BI React Circle Card
 
+<img src="https://user-images.githubusercontent.com/86872605/179803261-0c7f0740-1fd9-41e1-a112-14f22087a1dd.png" width=200 alt="Circle Card labelled as Total Visitor Count">
+
 This project demonstrates the Power BI custom visual development with React as instructed [here](https://docs.microsoft.com/en-us/power-bi/developer/visuals/create-react-visual) in Microsoft official tutorial.
 
 The only difference is that this project uses React functional component instead of class component.
