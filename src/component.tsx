@@ -3,11 +3,15 @@ import * as React from "react";
 export interface State {
   textLabel: string;
   textValue: string;
+  size: number;
+  background?: string;
+  borderWidth?: number;
 }
 
 export const initialState: State = {
   textLabel: "",
   textValue: "",
+  size: 200,
 };
 
 export class ReactCircleCard extends React.Component<{}, State> {
@@ -37,10 +41,17 @@ export class ReactCircleCard extends React.Component<{}, State> {
   }
 
   render() {
-    const { textLabel, textValue } = this.state;
+    const { textLabel, textValue, size, background, borderWidth } = this.state;
+
+    const style: React.CSSProperties = {
+      width: size,
+      height: size,
+      background,
+      borderWidth,
+    };
 
     return (
-      <div className="circleCard">
+      <div className="circleCard" style={style}>
         <p>
           {textLabel}
           <br />
